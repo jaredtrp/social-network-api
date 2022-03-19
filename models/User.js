@@ -1,5 +1,5 @@
-const { Schema, Model } = require('mongoose');
-const validateEmail = require('../utils/validator.js');
+import { Schema, Model } from 'mongoose';
+import validateEmail from '../utils/validator.js';
 
 const userSchema = new Schema(
   {
@@ -40,3 +40,11 @@ const userSchema = new Schema(
     id: false,
   }
 );
+
+userSchema.virtual('friendCount').get(function () {
+  return this.friends.length;
+});
+
+const User = Model('User', userSchema);
+
+export default User;
