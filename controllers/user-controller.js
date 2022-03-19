@@ -1,5 +1,4 @@
-import User from '../models';
-import Thought from '../models';
+const { User, Thought } = require('../models');
 
 // const req = require('express/lib/request');
 
@@ -105,4 +104,4 @@ const userController = {
   },
 };
 
-export default userController;
+module.exports = userController;

@@ -1,5 +1,5 @@
-import { Schema, Model, Types } from 'mongoose';
-import dateFormat from '../utils/dateFormat.js';
+const { Schema, model, Types } = require('mongoose');
+const dateFormat = require('../utils/dateFormat.js');
 
 const reactionSchema = new Schema({
   reactionId: {
@@ -53,6 +53,6 @@ thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 
-const Thought = Model('Thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
-export default Thought;
+module.exports = Thought;
